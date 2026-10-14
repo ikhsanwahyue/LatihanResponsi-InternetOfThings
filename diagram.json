@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "author": "Ikhsan Wahyu Endriarto",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -57.6,
+      "left": -14.36,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -19.6,
+      "left": -127.6,
+      "rotate": 270,
+      "attrs": {
+        "color": "green",
+        "xray": "1"
+      }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -41.6,
+      "left": 168.8,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 126.3,
+      "left": 159.1,
+      "attrs": {
+        "distance": "279"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 82.8,
+      "left": -121,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-junction",
+      "id": "j1",
+      "top": 177.6,
+      "left": 43.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 128.2,
+      "left": -87.25,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "lcd1:SDA",
+      "esp:21",
+      "gold",
+      [
+        "h-57.6",
+        "v9.8"
+      ]
+    ],
+    [
+      "lcd1:SCL",
+      "esp:22",
+      "orange",
+      [
+        "h-48",
+        "v-28.5"
+      ]
+    ],
+    [
+      "esp:5V",
+      "j1:J",
+      "red",
+      [
+        "v38.4",
+        "h57.75"
+      ]
+    ],
+    [
+      "lcd1:VCC",
+      "j1:J",
+      "red",
+      [
+        "h-38.4",
+        "v182.5"
+      ]
+    ],
+    [
+      "lcd1:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "h-38.4",
+        "v-19.2"
+      ]
+    ],
+    [
+      "ultrasonic1:VCC",
+      "j1:J",
+      "red",
+      [
+        "v9.6",
+        "h-182.4"
+      ]
+    ],
+    [
+      "ultrasonic1:TRIG",
+      "esp:5",
+      "blue",
+      [
+        "v19.2",
+        "h-125.2",
+        "v-182.4"
+      ]
+    ],
+    [
+      "ultrasonic1:ECHO",
+      "esp:18",
+      "green",
+      [
+        "v28.8",
+        "h-125.6",
+        "v-201.6"
+      ]
+    ],
+    [
+      "ultrasonic1:GND",
+      "esp:GND.3",
+      "black",
+      [
+        "v38.4",
+        "h-116.4",
+        "v-230.4"
+      ]
+    ],
+    [
+      "led1:A",
+      "r1:2",
+      "green",
+      [
+        "v48",
+        "h19.2",
+        "h18.9"
+      ]
+    ],
+    [
+      "esp:26",
+      "r1:1",
+      "violet",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "led1:C",
+      "black",
+      [
+        "h-28.65",
+        "v86.4",
+        "h-67.6"
+      ]
+    ],
+    [
+      "btn1:1.l",
+      "esp:27",
+      "#8f4814",
+      [
+        "v28.8",
+        "h29"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "btn1:2.l",
+      "black",
+      [
+        "h0"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}
